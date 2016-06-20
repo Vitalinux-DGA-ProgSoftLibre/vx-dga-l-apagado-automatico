@@ -1,0 +1,22 @@
+#!/bin/bash
+
+## vx-comprobar-horas-apagado: script que informa al usuario de las horas de apagado
+
+if test -f /etc/cron.d/apagado_automatico ; then
+        if ! test $(cat /etc/cron.d/apagado_automatico \
+                | grep "^.*cuentaatras" | wc -l | tee /tmp/nlineas) -ge 1 ; then
+                TEXTO="<b>No hay programado NINGÚN apagado</b>"
+        else
+                cat /etc/cron.d/apagado_automatico \
+                | grep "^.*cuentaatras" \
+                | cut -d" " -f1,2 | tr -s " " ":" > /tmp/aux-comprobar-apagado
+                TEXTO="<b>$(cat /tmp/aux-comprobar-apagado)</b>"
+        fi
+        yad --title "Completado" \
+                --image "shutdown" \
+                --text "  Las horas de apagado programadas son: \n $TEXTO" \
+                --center \
+                --window-icon=/usr/share/lxpanel/images/vitalinux.svg \
+                --width="350" --height="100" --text-align="center"
+fi
+

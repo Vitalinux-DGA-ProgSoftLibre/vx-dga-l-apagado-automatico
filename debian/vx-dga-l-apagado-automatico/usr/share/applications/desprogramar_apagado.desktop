@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Not Shutdown System diary
+Name[es]=Deshabilitar Apagado Automático
+Comment=Deshabilitar el Apagado Automático que haya sido previamente programado
+Icon=shutdown
+Exec=pkexec --user root /usr/bin/desprogramar_apagado
+Terminal=false
+Type=Application
+Categories=GestionApagado;SistemaApagado;
+StartupNotify=true
+Hidden=false
+

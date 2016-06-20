@@ -1,0 +1,22 @@
+#!/bin/bash
+## Desprogramador del apagado automático
+## Arturo Martín Romero
+
+# Ventana de desactivación del Apagado Automático
+
+USER=$(whoami)
+if test $USER = "root"
+then
+
+	if zenity --question --text "¿Desea desactivar el apagado automático?" ; then
+		if test -f /etc/cron.d/apagado_automatico ; then
+			echo "#0 21 * * * root export DISPLAY=:0 && su $(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login" > /etc/cron.d/apagado_automatico
+			exit 0
+		fi
+	fi
+
+else
+	yad --title "Desprogramar Apagado" --info --text " No tienes permiso para ejecutar el programa " \
+		--window-icon="shutdown" \
+                 --width="400" --height="100" --center --justify="center" --text-align="center"
+fi

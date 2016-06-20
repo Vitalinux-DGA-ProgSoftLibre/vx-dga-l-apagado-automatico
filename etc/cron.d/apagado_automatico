@@ -1,0 +1,1 @@
+#0 21 * * * root export DISPLAY=:0 && su $(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login

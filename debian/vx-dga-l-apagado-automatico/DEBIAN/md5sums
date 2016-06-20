@@ -1,0 +1,12 @@
+9083cc5638fdf9f0555545946ea5375c  usr/bin/cuentaatras
+d850aeaa7620b62c62be8ce3f68eaabd  usr/bin/desprogramar_apagado
+3d9cbc0a17aa9b6ed027b785a51fcb01  usr/bin/programar_apagado_diario
+7b3a49947936f53319f3eceebd03fdfd  usr/bin/vx-comprobar-horas-apagado
+690e909f9e0da20e9856089e657e642d  usr/share/applications/comprobar_horas_apagado.desktop
+6ec5baa0c737767c16fcc428049c4173  usr/share/applications/desprogramar_apagado.desktop
+1de2ebed0ce49fb1b943d3bad5ab6fb1  usr/share/applications/programar_apagado.desktop
+60276026d97272bf1c3548686b601719  usr/share/desktop-directories/gestionapagado.directory
+83baaa042b8cc28ab4e12ee7e4448302  usr/share/doc/vx-dga-l-apagado-automatico/changelog.Debian.gz
+00683eade8ea3367a4692ed6291f2260  usr/share/doc/vx-dga-l-apagado-automatico/copyright
+1c7d332f175fdb1461eb7096a14a5ab3  usr/share/icons/hicolor/scalable/apps/shutdown.svg
+647f993889dd6e18b262b8ca782a1163  usr/share/polkit-1/actions/apagarpc.pkexec.sistema.policy

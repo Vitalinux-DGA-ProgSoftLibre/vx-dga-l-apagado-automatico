@@ -1,0 +1,17 @@
+#!/bin/bash
+. /tmp/sesion
+for i in {1..100}; do 
+   echo "$i" 
+   sleep 0.2 
+done | zenity --progress \
+          --window-icon=/usr/share/pixmaps/gksu.png \
+          --title "Cuenta Atrás para el Apagado del Equipo" \
+          --text " Tu Sistema se apagará en 20sg. \n <b>PARA ABORTAR, CLICK EN CANCELAR!</b> " \
+          --percentage=0 \
+          --auto-close
+        if test $? -ne 0 ; then
+                zenity --error --text="Abortado por el usuario!"
+		exit 0
+        fi
+#shutdown
+sudo /sbin/init 0

@@ -1,0 +1,12 @@
+Package: vx-dga-l-apagado-automatico
+Version: 2.0-4
+Architecture: all
+Maintainer: Arturo Martín <amartinromero@gmail.com>
+Installed-Size: 107
+Depends: migasfree-client, yad
+Recommends: vx-dga-l-menu-vitalinux, vx-dga-l-scripts
+Section: utils
+Priority: extra
+Homepage: http://wiki.vitalinux.educa.aragon.es
+Description: Apagado automatico
+ Configura el apagado automatico del sistema de forma diaria

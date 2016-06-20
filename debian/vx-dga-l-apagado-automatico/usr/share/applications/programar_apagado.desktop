@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Shutdown
+Name[es]=Programar Apagado Automático
+Comment=Permite Programar el Apagado Automático del equipo
+Icon=shutdown
+Exec=pkexec --user root /usr/bin/programar_apagado_diario
+Terminal=false
+Type=Application
+Categories=GestionApagado;SistemaApagado;
+StartupNotify=true
+Hidden=false
+

@@ -1,0 +1,6 @@
+# Permiso para apagar el equipo
+ALL ALL=(ALL) NOPASSWD: /sbin/init 0
+# Permiso para configurar el cron para el agapado
+##ALL ALL=(ALL) NOPASSWD: /usr/bin/apagarpc-configurar_cron
+# Permiso para eliminar el apagagado programado
+##ALL ALL=(ALL) NOPASSWD: /bin/rm /etc/cron.d/apagado_automatico

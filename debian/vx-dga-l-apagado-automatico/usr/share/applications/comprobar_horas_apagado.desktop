@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Shutdown
+Name[es]=Comprobar Apagado Automatizado
+Comment=Permite Comprobar y Conocer las horas de Apagado Automatizado programadas
+Icon=shutdown
+Exec=/usr/bin/vx-comprobar-horas-apagado
+Terminal=false
+Type=Application
+Categories=GestionApagado;SistemaApagado;
+StartupNotify=true
+Hidden=false
+
