@@ -1,4 +1,4 @@
-vx-dga-l-apagado-automatico (2.0-4) unstable; urgency=low
+vx-dga-l-apagado-automatico (2.0-5) unstable; urgency=low
 
   * Apagado Automático para Lubuntu
   * Se ha configurado los privilegios para el apagado y encendido mediante polkit
@@ -6,5 +6,7 @@ vx-dga-l-apagado-automatico (2.0-4) unstable; urgency=low
   * Se ha añadido al menú de Vitalinux
   * Se ha añadido una aplicación para comprobar las horas de apagado
   * Se han modificado las dependencias del control añadiendo Recommends
+  * Se han puesto horas y minutos de forma correcta
+  * Se ha añadido la opción de poder configurar las horas de apagado desde la ventana de comprobar apagado
 
  -- Arturo Martín <amartinromero@gmail.com>  Mon, 18 Jan 2016 00:10:00 +0200

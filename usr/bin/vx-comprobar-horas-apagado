@@ -19,7 +19,7 @@ if test -f /etc/cron.d/apagado_automatico ; then
 		--window-icon=/usr/share/lxpanel/images/vitalinux.svg \
 		--width="350" --height="100" --text-align="center" \
 		--button="gtk-ok:0" --button="Programar Nuevo Apagado:1" ; then
-		/usr/bin/programar_apagado_diario
+		pkexec --user root /usr/bin/programar_apagado_diario
 	fi
 fi
 
