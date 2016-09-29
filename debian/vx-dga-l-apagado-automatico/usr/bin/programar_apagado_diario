@@ -21,7 +21,7 @@ then
 	fi
 
 	RES=$(yad --title="Desktop entry editor" --center --title "Programar Apagado" \
-		--width="400" \
+		--width="500" \
 		--window-icon="shutdown" \
 		--text-align center \
 		--text="$TEXTO" \
@@ -48,7 +48,9 @@ then
 		echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && (who | grep ' :0 ') && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login || sudo /sbin/init 0" >> /etc/cron.d/apagado_automatico
 	else
 		echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && (who | grep ' :0 ') && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login || sudo /sbin/init 0" > /etc/cron.d/apagado_automatico
-	fi	
+	fi
+
+	/usr/bin/vx-comprobar-horas-apagado
 
 else
 	yad --title "Programar Apagado" --info --text " No tienes permiso para ejecutar el programa " \
