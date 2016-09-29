@@ -10,7 +10,7 @@ then
 
 	if zenity --question --text "¿Desea desactivar el apagado automático?" ; then
 		if test -f /etc/cron.d/apagado_automatico ; then
-			echo "#0 21 * * * root export DISPLAY=:0 && su $(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login" > /etc/cron.d/apagado_automatico
+			echo "#0 21 * * * root export DISPLAY=:0 && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login" > /etc/cron.d/apagado_automatico
 			exit 0
 		fi
 	fi
