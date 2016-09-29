@@ -1,7 +1,7 @@
 9083cc5638fdf9f0555545946ea5375c  usr/bin/cuentaatras
 e144238f77b01ed748a450201816d59f  usr/bin/desprogramar_apagado
 cb657e856f87a6f58623997a232fa948  usr/bin/programar_apagado_diario
-c285eab38bcbf861438ccdda95b9333f  usr/bin/vx-comprobar-horas-apagado
+868a89201ce2dc96325a5fae4adffac8  usr/bin/vx-comprobar-horas-apagado
 690e909f9e0da20e9856089e657e642d  usr/share/applications/comprobar_horas_apagado.desktop
 6ec5baa0c737767c16fcc428049c4173  usr/share/applications/desprogramar_apagado.desktop
 1de2ebed0ce49fb1b943d3bad5ab6fb1  usr/share/applications/programar_apagado.desktop
