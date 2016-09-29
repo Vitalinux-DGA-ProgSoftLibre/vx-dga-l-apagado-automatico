@@ -4,10 +4,12 @@
 
 if test -f /etc/cron.d/apagado_automatico ; then
 	if ! test $(cat /etc/cron.d/apagado_automatico \
+		| grep -v "^#" \
 		| grep "^.*cuentaatras" | wc -l | tee /tmp/nlineas) -ge 1 ; then
 		TEXTO="<b>No hay programado NINGÚN apagado</b>"
 	else
 		cat /etc/cron.d/apagado_automatico \
+			| grep -v "^#" \
 			| grep "^.*cuentaatras" \
 			| awk -F " " '{ print $2 ":" $1}' > /tmp/aux-comprobar-apagado
 		TEXTO="<b>$(cat /tmp/aux-comprobar-apagado)</b>"

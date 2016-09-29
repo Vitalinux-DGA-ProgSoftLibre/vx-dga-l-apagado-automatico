@@ -1,8 +1,8 @@
 Package: vx-dga-l-apagado-automatico
-Version: 2.0-4
+Version: 2.0-5
 Architecture: all
 Maintainer: Arturo Martín <amartinromero@gmail.com>
-Installed-Size: 107
+Installed-Size: 108
 Depends: migasfree-client, yad
 Recommends: vx-dga-l-menu-vitalinux, vx-dga-l-scripts
 Section: utils
