@@ -8,9 +8,9 @@ if test $USER = "root"
 then
 
 	#Comprobamos las horas de apagado que ya hay programadas:
-	PROGRAMADOPREVIO=0
+#	PROGRAMADOPREVIO=0
 	if cat /etc/cron.d/apagado_automatico | grep -v "^#" | grep "^.*cuentaatras" &> /dev/null ; then
-		PROGRAMADOPREVIO=1
+#		PROGRAMADOPREVIO=1
 		cat /etc/cron.d/apagado_automatico \
 			| grep -v "^#" \
 			| grep "^.*cuentaatras" \
@@ -28,28 +28,29 @@ then
 		--form --field="Hora:NUM" 0!0..24!1  --field="Minutos:NUM" 0!0..55!5 \
 		--field="¿Mantener las Horas de Apagado ya programadas?:CHK" TRUE \
 		--button="gtk-ok:0" --button="Cancelar:1")
-	HORA=$(echo "$RES" | cut -d"|" -f1 | cut -d"," -f1)
-	MINUTOS=$(echo "$RES" | cut -d"|" -f2 | cut -d"," -f1)
-	MINUTODESPUES=$(expr $MINUTOS + 1)
-	MANTENERHORASPROGRAMADAS=$(echo "$RES" | cut -d"|" -f3 | cut -d"," -f1)
-	USER=$(who | grep " :0" | cut -d" " -f1)
+	if [ "$?" = "0" ]; then
+		HORA=$(echo "$RES" | cut -d"|" -f1 | cut -d"," -f1)
+		MINUTOS=$(echo "$RES" | cut -d"|" -f2 | cut -d"," -f1)
+	#	MINUTODESPUES=$(expr $MINUTOS + 1)
+		MANTENERHORASPROGRAMADAS=$(echo "$RES" | cut -d"|" -f3 | cut -d"," -f1)
+		USER=$(/usr/bin/vx-usuario-grafico)
 
 
-    for USUARIO in alumno profesor dga ; do
-	if test -f /var/spool/cron/crontabs/$USUARIO ; then
-		chown $USUARIO /var/spool/cron/crontabs/$USUARIO
-		chmod 600 /var/spool/cron/crontabs/$USUARIO
+	    for USUARIO in alumno profesor dga ; do
+		if test -f /var/spool/cron/crontabs/$USUARIO ; then
+			chown $USUARIO /var/spool/cron/crontabs/$USUARIO
+			chmod 600 /var/spool/cron/crontabs/$USUARIO
+		fi
+	    done
+
+	    if test "$MANTENERHORASPROGRAMADAS" == "TRUE" ; then
+		#echo "$MINUTODESPUES $HORA * * * root /sbin/init 0" > /etc/cron.d/apagado_automatico
+		#echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login" >> /etc/cron.d/apagado_automatico
+			echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && (who | grep ' :0 ') && su \$(/usr/bin/vx-usuario-grafico) -c '/usr/bin/cuentaatras' --login || sudo /sbin/init 0" >> /etc/cron.d/apagado_automatico
+		else
+			echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && (who | grep ' :0 ') && su \$(/usr/bin/vx-usuario-grafico) -c '/usr/bin/cuentaatras' --login || sudo /sbin/init 0" > /etc/cron.d/apagado_automatico
+		fi
 	fi
-    done
-
-    if test "$MANTENERHORASPROGRAMADAS" == "TRUE" ; then
-	#echo "$MINUTODESPUES $HORA * * * root /sbin/init 0" > /etc/cron.d/apagado_automatico
-	#echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login" >> /etc/cron.d/apagado_automatico
-		echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && (who | grep ' :0 ') && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login || sudo /sbin/init 0" >> /etc/cron.d/apagado_automatico
-	else
-		echo "$MINUTOS $HORA * * * root export DISPLAY=:0 && (who | grep ' :0 ') && su \$(who | grep ' :0 ' | cut -d' ' -f1) -c '/usr/bin/cuentaatras' --login || sudo /sbin/init 0" > /etc/cron.d/apagado_automatico
-	fi
-
 	/usr/bin/vx-comprobar-horas-apagado
 
 else

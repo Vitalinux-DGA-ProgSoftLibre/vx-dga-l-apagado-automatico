@@ -14,14 +14,14 @@ if test -f /etc/cron.d/apagado_automatico ; then
 			| awk -F " " '{ print $2 ":" $1}' > /tmp/aux-comprobar-apagado
 		TEXTO="<b>$(cat /tmp/aux-comprobar-apagado)</b>"
 	fi
-	if ! yad --title "Horas Programadas de Apagado" \
-		--image "shutdown" \
-		--text "  Las horas de apagado programadas son: \n $TEXTO" \
-		--center \
-		--window-icon=/usr/share/lxpanel/images/vitalinux.svg \
-		--width="350" --height="100" --text-align="center" \
-		--button="gtk-ok:0" --button="Programar Nuevo Apagado:1" ; then
-		pkexec --user root /usr/bin/programar_apagado_diario
-	fi
+    yad --title "Horas Programadas de Apagado" \
+            --image "shutdown" \
+            --text "  Las horas de apagado programadas son: \n $TEXTO" \
+            --center \
+            --window-icon=/usr/share/lxpanel/images/vitalinux.svg \
+            --width="350" --height="100" --text-align="center" \
+            --button="gtk-ok:0" --button="Programar Nuevo Apagado:1"
+    [ "$?" = 1 ] && pkexec --user root /usr/bin/programar_apagado_diario
+
 fi
 

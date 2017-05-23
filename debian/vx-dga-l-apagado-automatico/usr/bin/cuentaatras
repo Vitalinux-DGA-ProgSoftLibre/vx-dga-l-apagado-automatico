@@ -9,9 +9,9 @@ done | zenity --progress \
           --text " Tu Sistema se apagará en 20sg. \n <b>PARA ABORTAR, CLICK EN CANCELAR!</b> " \
           --percentage=0 \
           --auto-close
-        if test $? -ne 0 ; then
-                zenity --error --text="Abortado por el usuario!"
-		exit 0
-        fi
+if test $? -ne 0 ; then
+  zenity --error --text="Abortado por el usuario!"
+  exit 0
+fi
 #shutdown
 sudo /sbin/init 0

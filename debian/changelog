@@ -1,3 +1,10 @@
+vx-dga-l-apagado-automatico (2.0-6) unstable; urgency=low
+
+  * Se corrigen algunos bugs a la hora de cancelar la operación de reprgrogramación
+  * Uso del script de usuario grafico
+
+ -- Ignacio Sancho <sannacho@gmail.com>  Wed, 24 May 2017 00:10:00 +0200
+
 vx-dga-l-apagado-automatico (2.0-5) unstable; urgency=low
 
   * Apagado Automático para Lubuntu

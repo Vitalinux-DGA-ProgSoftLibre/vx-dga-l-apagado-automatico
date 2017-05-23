@@ -1,3 +1,3 @@
-/etc/sudoers.d/permiso-apagado
 /etc/cron.d/apagado_automatico
+/etc/sudoers.d/permiso-apagado
 /etc/xdg/menus/applications-merged/apagado-automatizado.menu
